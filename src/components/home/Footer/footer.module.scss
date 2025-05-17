@@ -1,0 +1,32 @@
+@use "@/styles/variables" as *;
+
+.root {
+    padding: 3rem;
+}
+
+.introduction {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &Media {
+        gap: 1.5rem;
+        display: flex;
+        align-items: center;
+
+        &Link {
+            display: grid;
+            place-content: center;
+
+            svg {
+                font-size: 1.5rem;
+                fill: var(--primary-color);
+                transition: fill .25s;
+            }
+
+            &:hover svg {
+                fill: $blue-primary;
+            }
+        }
+    }
+}

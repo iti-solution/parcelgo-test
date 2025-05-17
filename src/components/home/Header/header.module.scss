@@ -1,0 +1,301 @@
+@use "@/styles/variables" as *;
+@use "@/styles/responsive" as *;
+
+.root {
+    z-index: 2;
+    position: sticky;
+    padding-inline: 1.5rem;
+    border-bottom: 1px solid transparent;
+
+    @include screen($sm) {
+        padding-inline: 3rem;
+    }
+
+    &Active {
+        top: 0;
+        border-color: var(--outline-color);
+
+        &::before {
+            top: 0;
+            left: 0;
+            z-index: -1;
+            content: "";
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            -webkit-backdrop-filter: blur(1rem);
+            backdrop-filter: blur(1rem);
+        }
+
+        &::after {
+            content: "";
+            top: 0;
+            left: 0;
+            z-index: -1;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            opacity: .95;
+            background-color: var(--background-color);
+        }
+
+        .nav {
+            &ListItem {
+                color: var(--primary-color);
+            }
+        }
+
+        .actions {
+            &Button svg {
+                fill: var(--primary-color);
+            }
+
+            &Line {
+                background-color: var(--outline-color);
+            }
+
+            &Link {
+                color: var(--primary-color);
+            }
+        }
+    }
+
+    &Wrapper {
+        gap: 3rem;
+        display: flex;
+        align-items: center;
+        height: 89px;
+    }
+}
+
+.nav {
+    z-index: -1;
+    left: 0;
+    top: 90px;
+    width: 100%;
+    padding: 1.5rem;
+    position: absolute;
+    border-bottom: 1px solid var(--outline-color);
+    opacity: 0;
+    translate: 0 -100%;
+    transition: translate .5s, opacity .125s;
+
+    @include screen($lg) {
+        z-index: 0;
+        top: 0;
+        width: auto;
+        opacity: 1;
+        translate: 0;
+        padding: 0;
+        transition: none;
+        position: static;
+        border-bottom: none;
+
+        &::before, &::after {
+            opacity: 0;
+            display: none;
+        }
+    }
+
+    &Active {
+        opacity: 1;
+        translate: 0;
+    }
+
+    &::before {
+        top: 0;
+        left: 0;
+        z-index: -1;
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        -webkit-backdrop-filter: blur(1rem);
+        backdrop-filter: blur(1rem);
+    }
+
+    &::after {
+        content: "";
+        top: 0;
+        left: 0;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        opacity: .95;
+        background-color: var(--background-color);
+    }
+
+    @include screen($lg) {
+        display: block;
+    }
+
+
+    &List {
+        gap: 1.5rem;
+        display: flex;
+        flex-direction: column;
+
+        @include screen($lg) {
+            flex-direction: row;
+        }
+
+        &Item {
+            color: $white;
+            font-size: 1rem;
+            font-weight: 600;
+            position: relative;
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: -.5rem;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background-color: $blue-primary;
+                scale: .5;
+                opacity: 0;
+                transition: scale .25s ease-in, opacity .25s ease-in;
+            }
+
+            &Active {
+                color: var(--primary-color);
+                position: relative;
+
+                &::after {
+                    scale: 1;
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+
+
+.actions {
+    gap: .75rem;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    position: relative;
+
+    @include screen($lg) {
+
+        >div:last-of-type {
+            display: none;
+        }
+
+        >button:first-of-type {
+            margin-right: .75rem;
+        }
+
+    }
+
+
+    &Button {
+        display: none;
+        cursor: pointer;
+        padding: .25rem;
+        place-content: center;
+        border-radius: 50%;
+        position: relative;
+        overflow: hidden;
+
+        @include screen($lg) {
+            display: inline-grid;
+        }
+
+        svg {
+            fill: $white;
+            font-size: 1.375rem;
+            transition: fill .25s;
+        }
+
+        &:hover {
+            svg {
+                fill: $blue-primary;
+            }
+        }
+    }
+
+    &Line {
+        width: 1px;
+        height: 2rem;
+        margin-inline: .75rem;
+        background-color: rgba($white, .1);
+    }
+
+    &Link {
+        color: $white;
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+    &Language {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        border-radius: .75rem;
+        border: 1px solid var(--outline-color);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        padding: .5rem;
+        z-index: 10;
+
+        &::before {
+            top: 0;
+            left: 0;
+            z-index: -1;
+            content: "";
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            -webkit-backdrop-filter: blur(1rem);
+            backdrop-filter: blur(1rem);
+        }
+
+        &::after {
+            content: "";
+            top: 0;
+            left: 0;
+            z-index: -1;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            opacity: .95;
+            background-color: var(--background-color);
+        }
+
+        &Item {
+            gap: .75rem;
+            display: flex;
+            align-items: center;
+            padding: .5rem .75rem;
+            cursor: pointer;
+            background: transparent;
+            border: none;
+            color: $white;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: .75rem;
+            transition: background-color .25s ease;
+
+            &:hover {
+                background-color: var(--foreground-color);
+            }
+
+            span {
+                color: var(--primary-color);
+            }
+
+            img {
+                width: 20px;
+                height: 15px;
+                object-fit: cover;
+                border-radius: .25rem;
+            }
+        }
+    }
+}

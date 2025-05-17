@@ -1,0 +1,122 @@
+@use "sass:color";
+@use "@/styles/variables" as *;
+
+.root {
+    margin-top: -90px;
+    padding-inline: 1.5rem;
+    padding-block: calc(3rem + 90px) 3rem;
+    position: relative;
+    background-color: $blue-primary;
+    overflow: hidden;
+    background: linear-gradient(to bottom, $blue-secondary, $blue-primary);
+
+    &Wrapper {
+        gap: 3rem;
+        display: flex;
+        align-items: center;
+    }
+}
+
+.textWrapper {
+    position: relative;
+    height: 57px;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+}
+
+.animatedText {
+    display: block;
+    position: absolute;
+    width: 100%;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.article {
+    z-index: 1;
+    flex: 1;
+    gap: 1.5rem;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+
+    &Title {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+
+        span {
+            color: $white;
+            gap: .5rem;
+            display: inline-flex;
+            font-size: 2.75rem;
+            font-weight: 900;
+
+            &:last-of-type {
+                position: relative;
+                height: 57px;
+                overflow: hidden;
+                display: inline-flex;
+                align-items: center;
+
+                >span {
+                    display: block;
+                    position: absolute;
+                    white-space: nowrap;
+                }
+            }
+        }
+    }
+
+    &Type {
+        color: $white;
+        gap: .5rem;
+        display: inline-flex;
+        font-size: 2.75rem;
+        font-weight: 900;
+    }
+
+    &Description {
+        color: $white;
+        font-size: 1rem;
+        font-weight: 500;
+        line-height: 1.5rem;
+    }
+
+    >button {
+        color: $blue-primary;
+        background-color: $white;
+        margin-block: 1.5rem 90px;
+    }
+
+}
+
+.preview {
+    z-index: 1;
+    padding: .5rem;
+    // flex: 1.5;
+    // rotate: 1deg;
+    position: relative;
+    max-width: calc(1640px / 2.25);
+    max-height: calc(1300px / 2.25);
+    margin-right: -3rem;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+}
+
+.wave {
+    left: 0;
+    bottom: -5px;
+    width: 100%;
+    height: 300px;
+    position: absolute;
+
+    svg use {
+        fill: var(--background-color);
+    }
+}

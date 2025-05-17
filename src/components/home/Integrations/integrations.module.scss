@@ -1,0 +1,52 @@
+@use "@/styles/variables" as *;
+
+.root {
+  padding: 3rem;
+
+  &Wrapper {
+    
+  }
+
+  &Subtitle {
+    font-size: 1.25rem;
+    font-weight: 500;
+
+    strong {
+      color: $blue-primary;
+      font-weight: 700;
+    }
+  }
+}
+
+.swiper {
+  width: 100%;
+
+  &Slide {
+    cursor: pointer;
+    display: flex;
+    position: relative;
+    height: 40px !important;
+
+    img {
+      opacity: .9;
+      width: auto;
+      height: 100%;
+      object-fit: contain;
+      transition: opacity .25s;
+    }
+  }
+}
+
+[data-theme="light"] .swiperSlide img {
+  opacity: .5;
+  filter: grayscale(100%);
+}
+
+[data-theme="dark"] .swiperSlide img {
+  filter: grayscale(100%) saturate(100%) invert(81%) sepia(15%) saturate(486%) hue-rotate(187deg) brightness(75%) contrast(89%);
+}
+
+.swiperSlide:hover img {
+  opacity: 1;
+  filter: none;
+}

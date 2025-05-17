@@ -1,0 +1,134 @@
+@use "@/styles/variables" as *;
+@use "@/styles/responsive" as *;
+
+.root {
+    z-index: 5;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &::before {
+        z-index: -1;
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        backdrop-filter: blur(10px);
+        background-color: rgba(#000, .5);
+        animation: loadRoot .25s ease-in;
+    }
+
+    &Unload::before {
+        backdrop-filter: blur(0);
+        background-color: transparent;
+        animation: unloadRoot .25s ease-out;
+    }
+
+    &Wrapper {
+        padding: 3rem;
+        border-radius: 1.5rem;
+        border: 1px solid var(--outline-color);
+        background-color: var(--background-color);
+        width: min(100%, $sm);
+        animation: loadRootWrapper .25s ease-in;
+
+        &Unload {
+            scale: .75;
+            opacity: 0;
+            animation: unloadRootWrapper .25s ease-out;
+        }
+    }
+}
+
+.article {
+    gap: .75rem;
+    display: flex;
+    flex-direction: column;
+
+    &Title {
+        font-size: 2.5rem;
+        font-weight: 800;
+    }
+
+    &Button {
+        cursor: pointer;
+        display: grid;
+        place-content: center;
+
+        svg {
+            fill: var(--primary-color);
+            font-size: 1.5rem;
+        }
+    }
+}
+
+.form {
+    gap: 1.5rem;
+    display: flex;
+    flex-direction: column;
+
+    &Fields {
+        gap: 1.5rem;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+
+        >:nth-child(1),
+        >:nth-child(4) {
+            grid-column: span 2;
+        }
+
+    }
+}
+
+@keyframes loadRoot {
+    0% {
+        background-color: transparent;
+        backdrop-filter: blur(0);
+    }
+
+    100% {
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(10px);
+    }
+}
+
+@keyframes unloadRoot {
+    0% {
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(10px);
+    }
+
+    100% {
+        background-color: transparent;
+        backdrop-filter: blur(0);
+    }
+}
+
+@keyframes loadRootWrapper {
+    0% {
+        scale: .75;
+        opacity: 0;
+    }
+
+    100% {
+        scale: 1;
+        opacity: 1;
+    }
+}
+
+@keyframes unloadRootWrapper {
+    0% {
+        scale: 1;
+        opacity: 1;
+    }
+
+    100% {
+        scale: .75;
+        opacity: 0;
+    }
+}

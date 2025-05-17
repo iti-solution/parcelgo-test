@@ -1,0 +1,133 @@
+@use "@/styles/variables" as *;
+@use "@/styles/responsive" as *;
+
+.root {
+    padding: calc(3rem + 90px) 1.5rem 3rem;
+
+    @include screen($sm) {
+        padding: calc(3rem + 90px) 3rem 3rem;
+    }
+
+    &Wrapper {
+        gap: 1.5rem;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.article {
+    gap: .75rem;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+
+    &Title {
+        font-size: 2.5rem;
+        font-weight: 800;
+    }
+
+    &Description {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+}
+
+.container {
+    margin-top: 1.5rem;
+    gap: 1.5rem;
+    display: flex;
+    position: relative;
+    max-height: $lg;
+    overflow: hidden;
+    flex-direction: column;
+
+    @include screen($sm) {
+        flex-direction: row;
+    }
+
+    @include screen($md) {
+        max-height: $md;
+    }
+
+    &::before {
+        content: '';
+        z-index: 1;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 200px;
+        position: absolute;
+        user-select: none;
+        pointer-events: none;
+        background: linear-gradient(to top, var(--background-color) 0%, var(--background-color) 30%, transparent 100%);
+    }
+
+    &Column {
+        flex: 1;
+        gap: 1.5rem;
+        display: flex;
+        flex-direction: column;
+
+        &:nth-of-type(2) {
+            display: none;
+
+            @include screen($md) {
+                display: flex;
+            }
+        }
+
+        &Item {
+            gap: .75rem;
+            display: flex;
+            flex-direction: column;
+            padding: 1.5rem;
+            border-radius: 1.5rem;
+            border: 1px solid var(--outline-color);
+            background-color: var(--foreground-color);
+            position: relative;
+    
+            svg {
+                fill: $blue-primary;
+                font-size: 1.5rem;
+            }
+    
+    
+            &Description {
+                font-size: 1rem;
+                line-height: 1.5rem;
+            }
+    
+            &Author {
+                gap: 1.5rem;
+                display: flex;
+                align-items: center;
+                margin-top: .75rem;
+    
+                &Avatar {
+                    min-width: 40px;
+                    height: 40px;
+    
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        border-radius: 50%;
+                    }
+                }
+    
+                &Role {
+                    font-size: .975rem;
+    
+                    strong {
+                        font-weight: 600;
+                    }
+                }
+    
+            }
+        }
+    }
+}
+
+[data-theme="light"] .containerItem {
+    box-shadow: 0 .25rem 1.875rem rgba(202, 202, 202, 0.17);
+}

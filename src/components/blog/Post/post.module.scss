@@ -1,0 +1,271 @@
+@use "sass:color";
+@use "@/styles/variables" as *;
+@use "@/styles/responsive" as *;
+
+.root {
+    padding: 3rem 1.5rem;
+
+    @include screen($sm) {
+        padding: 3rem;
+    }
+
+    &Wrapper {
+        gap: 3rem;
+        display: flex;
+        flex-direction: column;
+
+        &Container {
+            gap: 3rem;
+            display: flex;
+            align-items: flex-start;
+            position: relative;
+        }
+    }
+}
+
+.hero {
+    gap: 3rem;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--outline-color);
+
+    @include screen($lg) {
+        flex-direction: row;
+    }
+
+    &Content {
+        gap: 1.5rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+
+        &Categories {
+            gap: .75rem;
+            display: flex;
+            flex-wrap: wrap;
+
+            &Item {
+                padding: .5rem .875rem;
+                font-size: 1rem;
+                font-weight: 600;
+                color: $blue-primary;
+                border-radius: 1.5rem;
+                background-color: rgba($blue-primary, .1);
+            }
+        }
+
+        &Title {
+            font-size: 2.75rem;
+            font-weight: 900;
+        }
+
+        &Author {
+            gap: 1.5rem;
+            display: flex;
+            align-items: center;
+            margin-top: .75rem;
+            align-items: flex-end;
+
+            &Avatar {
+                width: 3rem;
+                height: 3rem;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    border-radius: 50%;
+                }
+            }
+
+            &Details {
+                gap: .25rem;
+                display: flex;
+                flex-direction: column;
+
+                &Name {
+                    font-size: 1.25rem;
+                    font-weight: 600;
+                }
+
+                &Role {
+                    font-size: .975rem;
+                }
+            }
+
+            &Date {
+                color: $blue-primary;
+                font-size: 1rem;
+                font-weight: 600;
+                margin-left: auto;
+            }
+
+        }
+
+    }
+
+    &Thumbnail {
+        width: 100%;
+        height: 40vh;
+        position: relative;
+
+        @include screen($lg) {
+            flex: 1;
+            width: auto;
+            height: auto;
+        }
+
+        img {
+            object-fit: cover;
+            border-radius: 1.5rem;
+        }
+    }
+}
+
+.blocks {
+    gap: 3rem;
+    display: flex;
+    flex-direction: column;
+
+    &Cta {
+        gap: .75rem;
+        padding: 3rem;
+        border-radius: 1.5rem;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        background: linear-gradient(to bottom, $blue-secondary, $blue-primary);
+
+        &Title {
+            color: $white;
+            font-size: 2.5rem;
+            font-weight: 800;
+        }
+
+        &Description {
+            color: $white;
+            font-size: 1rem;
+            line-height: 1.5rem;
+        }
+
+        button {
+            margin-top: 1.5rem;
+            color: $blue-primary;
+            background-color: $white;
+    
+            &:hover {
+                background-color: color.adjust($white, $lightness: -5%);
+            }
+        }
+    }
+
+    &Article {
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+        }
+
+        a {
+            color: $blue-primary;
+            font-weight: 500;
+            text-decoration: underline;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.5rem;
+        }
+
+        blockquote {
+            font-size: 1.1rem;
+            padding: 1.5rem;
+            margin-block: 1.5rem;
+            border-left: 4px solid $blue-primary;
+        }
+
+        pre {
+            border-radius: 1rem;
+            padding: 1rem;
+            overflow-x: auto;
+        }
+
+        code {
+            border-radius: 0.25rem;
+            padding: 0.25rem;
+            color: $blue-primary;
+            background-color: rgba($blue-primary, .1);
+        }
+
+        ul,
+        ol {
+            margin: 1.5rem 0;
+            padding-left: 1.5rem;
+
+            li {
+                font-size: 1.1rem;
+                line-height: 1.5rem;
+                margin-bottom: 1rem;
+            }
+        }
+
+        ol {
+            list-style-type: decimal;
+        }
+
+        ul {
+            list-style-type: disc;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            border-radius: 1.5rem;
+        }
+
+    }
+}
+
+.aside {
+    top: calc(1.5rem + 90px);
+    gap: 1.5rem;
+    flex-direction: column;
+    position: sticky;
+    min-width: 220px;
+    max-width: 100%;
+    display: none;
+
+    @include screen($lg) {
+        display: flex;
+    }
+
+    &Title {
+        font-size: .975rem;
+        font-weight: 600;
+    }
+
+    &List {
+        gap: .75rem;
+        display: flex;
+        flex-direction: column;
+
+        &Item {
+            cursor: pointer;
+            padding: .75rem;
+            font-size: .975rem;
+            font-weight: 600;
+            border-radius: .75rem;
+
+            &Active {
+                color: $blue-primary;
+                background-color: rgba($blue-primary, .1);
+            }
+
+        }
+    }
+}

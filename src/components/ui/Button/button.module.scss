@@ -1,0 +1,60 @@
+@use "sass:color";
+@use "@/styles/variables" as *;
+
+.root {
+  gap: .75rem;
+  padding: .75rem 1.125rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  transition: background-color .25s ease, color .25s ease, border-color .25s ease, opacity .25s ease;
+
+  svg {
+    font-size: 1.125rem;
+  }
+
+  &:disabled {
+    opacity: .75;
+  }
+
+  &Loading {
+    svg {
+      font-size: 1.25rem;
+      animation: spinner 1.25s infinite linear;
+    }
+  }
+}
+
+.primary {
+  color: $white;
+  background-color: $blue-primary;
+  border-radius: 5rem;
+
+  &:hover {
+    background-color: color.adjust($blue-primary, $lightness: 5%);
+  }
+
+}
+
+.secondary {
+  color: $blue-primary;
+  border: 1px solid $blue-primary;
+  border-radius: 5rem;
+
+  &:hover {
+    color: $white;
+    border-color: color.adjust($blue-primary, $lightness: 5%);
+    background-color: color.adjust($blue-primary, $lightness: 5%);
+  }
+}
+
+@keyframes spinner {
+  100% {
+    rotate: 360deg;
+  }
+}

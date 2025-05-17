@@ -1,0 +1,50 @@
+{
+  "Core": {
+    "Cta": {
+      "Title": "Zacznij oszczędzać na przesyłkach!",
+      "Description": "Zacznij oszczędzać na przesyłkach bez kompromisów - szybciej, taniej, wygodniej, już dzisiaj!",
+      "ButtonText": "Zacznij za darmo"
+    }
+  },
+  "Home": {
+    "HeaderNav": {
+      "Functionalities": "Funkcje",
+      "Pricing": "Cennik",
+      "Contact": "Kontakt",
+      "Blog": "Blog"
+    },
+    "HeaderActions": {
+      "TryIt": "Zacznij za darmo",
+      "Theme": "Zmień motyw",
+      "Language": "Zmień język",
+      "LogIn": "Zaloguj się",
+      "Polish": "Polski",
+      "English": "Angielski"
+    },
+    "NotFound": {
+      "Title": "Nie znaleziono strony",
+      "Description": "Ta strona nie istnieje lub została usunięta",
+      "ButtonText": "Wróć na stronę główną"
+    }
+  },
+  "Posts": {
+    "Pagination": {
+      "ItemsPerPage": "Elementy na stronę",
+      "JumpTo": "Przejdź do",
+      "JumpToConfirm": "Przejdź do",
+      "Page": "Strona",
+      "PrevPage": "Poprzednia",
+      "NextPage": "Następna",
+      "Prev5": "Poprzednie 5",
+      "Next5": "Następne 5",
+      "Prev3": "Poprzednie 3",
+      "Next3": "Następne 3",
+      "PageSize": "Rozmiar strony"
+    },
+    "NotFound": {
+      "Title": "Nie znaleziono wpisu",
+      "Description": "Ten wpis blogowy nie istnieje lub został usunięty",
+      "ButtonText": "Wróć do bloga"
+    }
+  }
+}

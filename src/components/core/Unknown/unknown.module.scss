@@ -1,0 +1,32 @@
+@use "@/styles/variables" as *;
+
+.root {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100svh - 90px);
+
+    &Wrapper {
+        flex: 1;
+        gap: .75rem;
+        display: flex;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    &Title {
+        font-size: 2.5rem;
+        font-weight: 800;
+    }
+
+    &Description {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    a {
+        margin-top: 1.5rem;
+    }
+}

@@ -1,0 +1,55 @@
+@use "@/styles/variables" as *;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+    --primary-color: #{$primary-dark};
+    --outline-color: #{$outline-dark};
+    --foreground-color: #{$foreground-dark};
+    --background-color: #{$background-dark};
+
+    &[data-theme="light"] {
+        --primary-color: #{$primary-light};
+        --outline-color: #{$outline-light};
+        --foreground-color: #{$foreground-light};
+        --background-color: #{$background-light};
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    color: var(--primary-color);
+    background-color: var(--background-color);
+}
+
+button {
+    border: none;
+    font-family: inherit;
+    background-color: inherit;
+}
+
+input,
+textarea {
+    border: none;
+    outline: none;
+    background-color: inherit;
+    font-family: inherit;
+}
+
+ul,
+ol {
+    list-style-type: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}

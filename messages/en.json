@@ -1,0 +1,50 @@
+{
+  "Core": {
+    "Cta": {
+      "Title": "Start saving on shipments!",
+      "Description": "Start saving on shipments without compromises - faster, cheaper, more conveniently, today!",
+      "ButtonText": "Try for free"
+    }
+  },
+  "Home": {
+    "HeaderNav": {
+      "Functionalities": "Functions",
+      "Pricing": "Pricing",
+      "Contact": "Contact",
+      "Blog": "Blog"
+    },
+    "HeaderActions": {
+      "TryIt": "Try for free",
+      "Theme": "Change theme",
+      "Language": "Change language",
+      "LogIn": "Log in",
+      "Polish": "Polish",
+      "English": "English"
+    },
+    "NotFound": {
+      "Title": "Page Not Found",
+      "Description": "This page does not exist or has been removed",
+      "ButtonText": "Return to Home"
+    }
+  },
+  "Posts": {
+    "Pagination": {
+      "ItemsPerPage": "Items per page",
+      "JumpTo": "Jump to",
+      "JumpToConfirm": "Jump to",
+      "Page": "Page",
+      "PrevPage": "Previous",
+      "NextPage": "Next",
+      "Prev5": "Previous 5",
+      "Next5": "Next 5",
+      "Prev3": "Previous 3",
+      "Next3": "Next 3",
+      "PageSize": "Page size"
+    },
+    "NotFound": {
+      "Title": "Post Not Found",
+      "Description": "This blog post does not exist or has been removed",
+      "ButtonText": "Back to Blog"
+    }
+  }
+}

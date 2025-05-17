@@ -1,0 +1,5 @@
+SEO (alternate pod pl/en, title, desc pod bloga etcccc)
+Footer
+Hero section
+Breadcrumbs
+Robots.tx i Sitemap.xml (static + pod bloga)

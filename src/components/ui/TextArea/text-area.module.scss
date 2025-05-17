@@ -1,0 +1,60 @@
+@use "@/styles/variables" as *;
+
+[data-theme="dark"] .root {
+
+    &Textarea {
+        background-color: rgba($outline-dark, .125);
+        box-shadow: 0 0 0 1px rgba($outline-dark, 1);
+    }
+
+    &Label {
+        color: $secondary-dark;
+    }
+
+}
+
+[data-theme="light"] .root {
+
+    &Textarea {
+        background-color: rgba($outline-light, .125);
+        box-shadow: 0 0 0 1px rgba($outline-light, 1);
+    }
+
+    &Label {
+        color: $secondary-light;
+    }
+
+}
+
+.root {
+    gap: .75rem;
+    display: flex;
+    flex-direction: column;
+    
+    &Textarea {
+        color: var(--primary-color);
+        border: none;
+        outline: none;
+        font-size: 1rem;
+        font-weight: 500;
+        padding: 1rem;
+        border-radius: .75rem;
+        resize: none;
+
+        &::placeholder {
+            opacity: .5;
+            color: var(--primary-color);
+        }
+        
+
+        &:focus {
+            box-shadow: 0 0 0 2px $blue-primary;
+        }
+    }
+
+    &Label {
+        font-size: .975rem;
+        font-weight: 500;
+    }
+}
+

@@ -1,0 +1,130 @@
+@use "@/styles/variables" as *;
+@use "@/styles/responsive" as *;
+
+.root {
+    padding: calc(3rem + 90px) 1.5rem 3rem;
+
+    @include screen($sm) {
+        padding: calc(3rem + 90px) 3rem 3rem;
+    }
+
+    &Wrapper {
+        gap: 1.5rem;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.article {
+    gap: .75rem;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+
+    &Title {
+        font-size: 2.5rem;
+        font-weight: 800;
+    }
+
+    &Description {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+}
+
+.container {
+    gap: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.5rem;
+
+    &Item {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        border-bottom: 1px solid var(--outline-color);
+
+        &Question {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            padding-top: 1.5rem;
+            user-select: none;
+            justify-content: space-between;
+
+            span {
+                font-size: 1.3rem;
+                font-weight: 600;
+            }
+
+            button {
+                cursor: pointer;
+                min-width: 2.25rem;
+                height: 2.25rem;
+                display: inline-grid;
+                place-content: center;
+                border-radius: 50%;
+                background-color: $blue-primary;
+                background-image: linear-gradient(45deg, $blue-primary 10%, $blue-secondary 200%);
+
+                span {
+                    display: inline-grid;
+                    place-content: center;
+                }
+
+                svg {
+                    fill: $white;
+                    font-size: 1.25rem;
+                }
+            }
+        }
+
+        &Answer {
+            padding-bottom: 1.5rem;
+
+            span {
+                font-size: 1rem;
+                font-weight: 400;
+                line-height: 1.5rem;
+            }
+
+            strong {
+                font-weight: 500;
+            }
+
+            ul,
+            ol {
+                margin: 1rem 0;
+                padding-left: 1.5rem;
+                list-style-position: outside;
+                list-style-type: disc;
+                font-size: 1rem;
+                line-height: 1.5rem;
+
+                li {
+                    margin-bottom: 0.5rem;
+
+                }
+            }
+
+            p {
+                margin: 1rem 0;
+                font-size: 1rem;
+                line-height: 1.5rem;
+            }
+
+            ol {
+                list-style-type: decimal;
+
+                li {
+                    &::marker {
+                        font-weight: 600;
+                    }
+                }
+            }
+
+        }
+
+
+    }
+}
