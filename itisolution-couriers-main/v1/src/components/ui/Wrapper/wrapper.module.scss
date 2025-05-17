@@ -1,0 +1,7 @@
+@use "@/styles/variables" as *;
+@use "@/styles/responsive" as *;
+
+.root {
+    width: min(100%, $xl);
+    margin-inline: auto;
+}

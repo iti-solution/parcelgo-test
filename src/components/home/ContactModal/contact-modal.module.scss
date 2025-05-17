@@ -1,0 +1,144 @@
+@use "@/styles/variables" as *;
+@use "@/styles/responsive" as *;
+
+.root {
+    z-index: 15;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &::before {
+        z-index: -1;
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        backdrop-filter: blur(10px);
+        background-color: rgba(#000, .5);
+        animation: loadRoot .125s ease-in;
+    }
+
+    &Unload::before {
+        backdrop-filter: blur(0);
+        background-color: transparent;
+        animation: unloadRoot .125s ease-out;
+    }
+
+    &Wrapper {
+        padding: 3rem;
+        background-color: var(--background-color);
+        width: 100%;
+        animation: loadRootWrapper .125s ease-in;
+        overflow-y: auto;
+        height: 100%;
+
+        @include screen($md) {
+            height: auto;
+            width: min(100%, $sm);
+            border-radius: 1.5rem;
+            border: 1px solid var(--outline-color);
+        }
+
+        &Unload {
+            scale: .75;
+            opacity: 0;
+            animation: unloadRootWrapper .125s ease-out;
+        }
+    }
+}
+
+.article {
+    gap: .75rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+
+    &Title {
+        font-size: $heading-2;
+        font-weight: 800;
+    }
+
+    &Button {
+        cursor: pointer;
+        display: inline-grid;
+        place-content: center;
+
+        svg {
+            fill: $blue-primary;
+            font-size: 1.5rem;
+        }
+    }
+
+}
+
+.form {
+    gap: 1.5rem;
+    display: flex;
+    flex-direction: column;
+
+    &Fields {
+        gap: 1.5rem;
+        display: grid;
+        // grid-template-columns: repeat(2, 1fr);
+
+        // >:nth-child(1),
+        // >:nth-child(4) {
+        //     grid-column: span 2;
+        // }
+
+    }
+}
+
+@keyframes loadRoot {
+    0% {
+        background-color: transparent;
+        backdrop-filter: blur(0);
+    }
+
+    100% {
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(10px);
+    }
+}
+
+@keyframes unloadRoot {
+    0% {
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(10px);
+    }
+
+    100% {
+        background-color: transparent;
+        backdrop-filter: blur(0);
+    }
+}
+
+@keyframes loadRootWrapper {
+    0% {
+        scale: .75;
+        opacity: 0;
+    }
+
+    100% {
+        scale: 1;
+        opacity: 1;
+    }
+}
+
+@keyframes unloadRootWrapper {
+    0% {
+        scale: 1;
+        opacity: 1;
+    }
+
+    100% {
+        scale: .75;
+        opacity: 0;
+    }
+}

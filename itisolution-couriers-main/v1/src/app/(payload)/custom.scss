@@ -1,0 +1,77 @@
+@use "@/styles/variables" as *;
+
+html {
+  &[data-theme=dark] {
+    --theme-elevation-0: rgb(25, 33, 43);
+    --theme-elevation-50: rgb(30, 38, 50);
+    --theme-elevation-100: rgb(38, 46, 60);
+    --theme-elevation-150: rgb(46, 54, 70);
+    --theme-elevation-200: rgb(54, 62, 82);
+    --theme-elevation-250: rgb(63, 71, 94);
+    --theme-elevation-300: rgb(73, 81, 107);
+    --theme-elevation-350: rgb(84, 92, 121);
+    --theme-elevation-400: rgb(96, 104, 136);
+    --theme-elevation-450: rgb(109, 117, 152);
+    --theme-elevation-550: rgb(123, 131, 168);
+    --theme-elevation-600: rgb(138, 146, 185);
+    --theme-elevation-650: rgb(154, 162, 202);
+    --theme-elevation-700: rgb(171, 179, 220);
+    --theme-elevation-750: rgb(189, 197, 238);
+    --theme-elevation-800: rgb(208, 216, 255);
+    --theme-elevation-850: rgb(228, 236, 255);
+    --theme-elevation-900: rgb(248, 250, 255);
+    --theme-elevation-950: rgb(255, 255, 255);
+    --theme-elevation-1000: rgb(255, 255, 255);
+
+
+
+    --theme-bg: #{$background-dark};
+  }
+}
+
+body, h2, h5 {
+  font-family: monospace;
+  font-weight: bold;
+}
+
+.btn {
+  &--style-primary {
+    background-color: $blue-primary;
+    color: var(--theme-elevation-900);
+  }
+
+  &--style-primary.btn--disabled {
+    opacity: .75;
+  }
+
+  &--disabled {
+    opacity: .5;
+  }
+}
+
+.login .logo path {
+  fill: rgb(0, 213, 110);
+}
+
+.template-default {
+  .nav {
+    &__brand .icon path {
+      fill: rgb(0, 213, 110);
+    }
+  }
+  
+  .before-dashboard {
+    .banner {
+      // BEM modifier selector (.banner--type-success)
+      &--type-success {
+        background: rgb(0, 213, 110);
+        color: white;
+      }
+
+      // BEM element selector (.banner__content)
+      &__content svg {
+        background-color: #2A2544;
+      }
+    }
+  }
+}
