@@ -23,13 +23,14 @@ const hashFont = context => {
 }
 
 const nextConfig = {
-  images: {
-    remotePatterns: [
-      {
-        hostname: process.env.NEXT_PUBLIC_DOMAIN
-      }
-    ]
-  },
+images: {
+  remotePatterns: [
+    {
+      protocol: 'https',
+      hostname: '**'
+    }
+  ]
+},
   webpack(config) {
     const rules = config.module.rules
       .find(rule => typeof rule.oneOf === 'object')
